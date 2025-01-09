@@ -96,9 +96,19 @@
         </div>
     </div>
 
-    <audio id="audio" loop autoplay>
-        <source src="musik.mp3" type="audio/mp3">
+    <audio id="audio" loop>
+        <source src="musik.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio>    
+    </audio>
+
+    <script>
+        // Attempt to play the audio after user interaction (click anywhere)
+        document.body.addEventListener('click', function () {
+            var audio = document.getElementById('audio');
+            audio.play().catch(function (error) {
+                console.log('Audio play error: ', error);
+            });
+        });
+    </script>
 </body>
 </html>
